@@ -22,10 +22,6 @@ public class AuthVoteController {
     @PostMapping("/register-vote")
     public ResponseEntity<String> register_vote(@RequestParam int userID){
 
-        int ret = authService.checkPermission(userID);
-        if (ret == 1) {
-            return new ResponseEntity<>("Acesso não autorizado.", HttpStatus.FORBIDDEN);
-        }
 
         authVoteService.register();
 

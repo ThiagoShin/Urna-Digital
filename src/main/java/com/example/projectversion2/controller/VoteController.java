@@ -19,10 +19,7 @@ public class VoteController {
 
     @PostMapping("/vote/{idCandidateVote}")
     public ResponseEntity<String> Vote(@RequestParam int userID, @PathVariable("idCandidateVote") int idCandidateVote) {
-        int ret = service.checkPermission(userID);
-        if (ret == 0) {
-            return new ResponseEntity<>("Acesso não autorizado.", HttpStatus.FORBIDDEN);
-        }
+
 
         int retorno = services.registerVote(userID, idCandidateVote);
 

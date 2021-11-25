@@ -26,11 +26,6 @@ public class AuthCandidateController {
     @PostMapping("/cadastrar-candidatos")
     public ResponseEntity<String> cadastraCandidato(@RequestParam int userID, @RequestBody CandidateDTO candidate) {
 
-        int ret = authService.checkPermission(userID);
-        if (ret == 1) {
-            return new ResponseEntity<>("Acesso não autorizado.", HttpStatus.FORBIDDEN);
-        }
-
         int ans = authCandidateService.registerCandidate(candidate);
 
         if (ans == 1) {

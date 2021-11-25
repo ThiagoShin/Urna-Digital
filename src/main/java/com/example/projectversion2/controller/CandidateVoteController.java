@@ -22,9 +22,6 @@ public class CandidateVoteController {
     @PostMapping("/candidate-vote")
     public ResponseEntity<String> CandidateVote(@RequestParam int idVote, @RequestParam int IDCandidate, @RequestParam int userID){
         int ret = authService.checkPermission(userID);
-        if (ret == 1) {
-            return new ResponseEntity<>("Acesso não autorizado.", HttpStatus.FORBIDDEN);
-        }
 
         int retorno = candidateVoteService.cadastraCandidateVote(idVote, IDCandidate);
 

@@ -24,9 +24,7 @@ public class AlterStatusVoteController {
         //http://localhost:8080/alter-status-vote/1?userID=1
 
         int ret = authService.checkPermission(userID);
-        if (ret == 1) {
-            return new ResponseEntity<>("Acesso não autorizado.", HttpStatus.FORBIDDEN);
-        }
+
 
         int temp = alterStatusVoteService.alterStatus(idVote);
 
